@@ -1,0 +1,32 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header"></head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="logo">YG</div>
+        <div>
+          <div class="title">Admin - Questions</div>
+          <div class="subtitle">Manage quiz questions</div>
+        </div>
+      </div>
+
+      <div class="admin-list">
+        <a class="btn primary" href="/admin/new">New Question</a>
+        <ul>
+          <li th:each="q : ${questions}">
+            <div>
+              <div th:text="${q.id} + ' - ' + ${q.text}"></div>
+              <div class="small" th:text="${q.category} + ' • ' + ${q.difficulty}"></div>
+            </div>
+            <div>
+              <!-- future edit/delete buttons -->
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

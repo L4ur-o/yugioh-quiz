@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header"></head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="logo">YG</div>
+        <div>
+          <div class="title">Yu-Gi-Oh Quiz</div>
+          <div class="subtitle">Test your knowledge — English</div>
+        </div>
+      </div>
+
+      <p>Welcome! Ready to test your Yu-Gi-Oh knowledge?</p>
+      <div class="actions">
+        <a class="btn primary" href="/quiz?size=5">Start 5-question Quiz</a>
+        <a class="btn" href="/quiz?size=10">Start 10-question Quiz</a>
+        <a class="btn" href="/admin">Admin</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

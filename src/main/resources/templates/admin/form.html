@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header"></head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="logo">YG</div>
+        <div>
+          <div class="title">New Question</div>
+          <div class="subtitle">Add a quiz question</div>
+        </div>
+      </div>
+
+      <form method="post" action="/admin/save">
+        <label>Text:<br/><textarea name="text" rows="3" cols="60"></textarea></label><br/>
+        <label>Category:<input name="category"/></label><br/>
+        <label>Difficulty:<input name="difficulty"/></label><br/>
+        <h3>Choices (enter 4, check correct)</h3>
+        <div><input type="text" name="choiceTexts"/><label> Correct? <input type="checkbox" name="correctIndex" value="0"/></label></div>
+        <div><input type="text" name="choiceTexts"/><label> Correct? <input type="checkbox" name="correctIndex" value="1"/></label></div>
+        <div><input type="text" name="choiceTexts"/><label> Correct? <input type="checkbox" name="correctIndex" value="2"/></label></div>
+        <div><input type="text" name="choiceTexts"/><label> Correct? <input type="checkbox" name="correctIndex" value="3"/></label></div>
+        <button class="btn primary" type="submit">Save</button>
+      </form>
+      <a class="btn" href="/admin">Back</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header"></head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="logo">YG</div>
+        <div>
+          <div class="title">Results</div>
+          <div class="subtitle">How did you do?</div>
+        </div>
+      </div>
+
+      <h2>Your score: <span class="score" th:text="${score}"></span></h2>
+      <div th:each="fb : ${feedback}" class="feedback-item">
+        <div th:text="${fb.question.text}"></div>
+        <div> Your answer: <strong th:text="${fb.chosen.text}"></strong> — <span th:text="${fb.correct} ? 'Correct' : 'Wrong'"></span></div>
+        <div th:if="${!fb.correct}"> Correct answer: <strong th:text="${fb.correctChoice.text}"></strong></div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <a class="btn" href="/">Back to home</a>
+        <a class="btn primary" th:href="@{/quiz?size=5}">Play again</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header"></head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="logo">YG</div>
+        <div>
+          <div class="title">Yu-Gi-Oh Quiz</div>
+          <div class="subtitle">Answer the questions</div>
+        </div>
+      </div>
+
+      <form method="post" action="/submit">
+        <label>Your name: <input type="text" name="playerName" value="Player"/></label>
+        <div class="quiz-list" th:each="q,iterStat : ${questions}">
+          <div class="question-card">
+            <div class="question-head">
+              <div class="question-text" th:text="${iterStat.index + 1} + '. ' + ${q.text}"></div>
+              <div class="meta" th:text="${q.difficulty} + ' • ' + ${q.category}"></div>
+            </div>
+            <ul class="choice-list">
+              <li class="choice" th:each="c : ${q.choices}">
+                <label>
+                  <input type="radio" th:name="${'q_' + q.id}" th:value="${c.id}" required/>
+                  <span th:text="${c.text}"></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <div class="meta">Good luck!</div>
+          <button class="btn primary" type="submit">Submit Answers</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
